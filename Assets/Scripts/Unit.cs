@@ -26,15 +26,18 @@ public abstract class Unit : MonoBehaviour,
 
     private void Start()
     {
-
+        if (MainManager.instance != null)
+        {
+            SetColor(MainManager.instance.TeamColor);
+        }
     }
 
-    void SetColor(Color c)
+    void SetColor(Color color)
     {
         var colorHandler = GetComponentInChildren<ColorHandler>();
         if (colorHandler != null)
         {
-            colorHandler.SetColor(c);
+            colorHandler.SetColor(color);
         }
     }
 
